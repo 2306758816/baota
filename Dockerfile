@@ -19,9 +19,9 @@ RUN mkdir -p /www/letsencrypt \
     && echo 'Port 63322' > /etc/ssh/sshd_config \
     && wget -O install.sh http://download.bt.cn/install/install_6.0.sh \
     && echo y | bash install.sh \
-    && python /set_default.py \   
-    && bash /www/server/panel/install/install_soft.sh 0 install nginx 1.17
-    && bash /www/server/panel/install/install_soft.sh 0 install php 5.6 || echo 'Ignore Error'
+    && python /set_default.py \
+    && bash /www/server/panel/install/install_soft.sh 0 install nginx 1.17 \
+    && bash /www/server/panel/install/install_soft.sh 0 install php 5.6 || echo 'Ignore Error' \
     && echo '["linuxsys", "webssh", "nginx", "php-5.6"]' > /www/server/panel/config/index.json
 
 VOLUME ["/www","/www/wwwroot"]
